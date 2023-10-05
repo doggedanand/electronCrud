@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# # Dependency directories
+# /electron/
+# /.cache/
+# /.history/
+# /.vscode/
+# /build/
+
+# # Logs
+# logs/
+# *.log
+
+# # Runtime data
+# db.json
+
+# # Environment variables
+# .env
