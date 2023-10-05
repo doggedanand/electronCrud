@@ -1,12 +1,12 @@
 # Node modules
 node_modules/
 
-# # Dependency directories
-# /electron/
-# /.cache/
-# /.history/
-# /.vscode/
-# /build/
+# Dependency directories
+/electron/
+/.cache/
+/.history/
+/.vscode/
+/build/
 
 # # Logs
 # logs/
