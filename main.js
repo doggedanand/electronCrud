@@ -20,7 +20,7 @@ function createWindow() {
   });
 
   // Load index.html into the new BrowserWindow
-  mainWindow.loadFile("login.html");
+  mainWindow.loadFile("index.html");
 
   // Open DevTools - Remove for PRODUCTION!
   mainWindow.webContents.openDevTools();
@@ -43,3 +43,32 @@ app.on("window-all-closed", () => {
 app.on("activate", () => {
   if (mainWindow === null) createWindow();
 });
+
+/*
+
+let userData = [];
+
+
+ipcMain.on('addUser', (event, user) => {
+  userData.push(user);
+  event.reply('userAdded', userData);
+});
+
+ipcMain.on('getUser', (event) => {
+  event.reply('userList', userData);
+});
+
+ipcMain.on('updateUser', (event, updatedUser) => {
+  const index = userData.findIndex((user) => user.id === updatedUser.id);
+  if (index !== -1) {
+    userData[index] = updatedUser;
+  }
+  event.reply('userUpdated', userData);
+});
+
+ipcMain.on('deleteUser', (event, userId) => {
+  userData = userData.filter((user) => user.id !== userId);
+  event.reply('userDeleted', userData);
+});
+
+*/
