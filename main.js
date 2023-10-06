@@ -1,3 +1,4 @@
+
 // Modules
 const { app, BrowserWindow } = require("electron");
 
@@ -44,31 +45,55 @@ app.on("activate", () => {
   if (mainWindow === null) createWindow();
 });
 
-/*
-
-let userData = [];
 
 
-ipcMain.on('addUser', (event, user) => {
-  userData.push(user);
-  event.reply('userAdded', userData);
-});
+ 
+const nameInput = document.createElement("input");
+nameInput.classList.add("form-control");
 
-ipcMain.on('getUser', (event) => {
-  event.reply('userList', userData);
-});
+const ageInput = document.createElement("input");
+ageInput.classList.add("form-control");
 
-ipcMain.on('updateUser', (event, updatedUser) => {
-  const index = userData.findIndex((user) => user.id === updatedUser.id);
-  if (index !== -1) {
-    userData[index] = updatedUser;
-  }
-  event.reply('userUpdated', userData);
-});
+const addButton = document.createElement("button");
+addButton.textContent = "Add User";
+addButton.classList.add("btn");
+addButton.classList.add("btn-primary");
 
-ipcMain.on('deleteUser', (event, userId) => {
-  userData = userData.filter((user) => user.id !== userId);
-  event.reply('userDeleted', userData);
-});
+const deleteButton = document.createElement("button");
+deleteButton.textContent = "Delete User";
+deleteButton.classList.add("btn");
+deleteButton.classList.add("btn-danger");
 
-*/
+const updateButton = document.createElement("button");
+updateButton.textContent = "Update User";
+updateButton.classList.add("btn");
+updateButton.classList.add("btn-secondary");
+
+window.document.body.appendChild(nameInput);
+window.document.body.appendChild(ageInput);
+window.document.body.appendChild(addButton);
+window.document.body.appendChild(deleteButton);
+window.document.body.appendChild(updateButton);
+
+ 
+function updateUsersTable() {
+  
+  usersTable.querySelector("tbody").innerHTML = "";
+
+   
+  database.users.forEach((user, index) => {
+    const row = document.createElement("tr");
+
+    const nameCell = document.createElement("td");
+    nameCell.textContent = user.name;
+    row.appendChild(nameCell);
+
+    const ageCell = document.createElement("td");
+    ageCell.textContent = user.age;
+    row.appendChild(ageCell);
+
+    usersTable.querySelector("tbody").appendChild(row);
+  });
+}
+ 
+ 
